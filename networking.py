@@ -15,23 +15,24 @@ def create_socket():
 
 
 # Prompts the user to input the IP address associated with the recieving file backup server.
-# Checks to ensure user-inputed IP address is valid
+# Checks to ensure user-inputed IP address is valid.
 def server_address_prompt():
   # Prompts user for back-up server IP address
   server_ip = input('Backup server IP address: ')
   
   # Ensures that the string inputted follows the IPv4 format before continuing.
   # Returns true if the input is of the correct format and False if the input
-  # does not match the specified format
+  # does not match the specified format.
   check_input = re.match('^[0-9]{3}.[0-9]{3}.[0-9]{3}.[0-9]{3}$', server_ip)
   
-  # If after checking the input format check_input returns True, then have the function return
-  # return the user-inputted IP address.
+  # If check_input returns True, then have the immediately have 
+  # the function return the properly formatted user-inputted IP address.
   if check_input is True:
     return server_ip
   else:
-    # For inputs returning False, the user is prompted of their improper input and given unlimited attempts
-    # to input a correctly formatted IP address. Once the input check returns True, the loop breaks.
+    # For inputs returning False, the user is alerted of their improper input and given unlimited attempts
+    # to input a correctly formatted IP address. Once the input check returns True, the loop breaks and the
+    # script continues as normal.
     while check_input is False:
       print('Invalid IP address format. Please re-check IP and try again.')
       server_ip = input('Backup server IP address: ')
