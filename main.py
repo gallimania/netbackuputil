@@ -8,6 +8,7 @@
 # - Python 3
 # - socket
 # - pycdlib
+# - re
 #
 # Begin main.py
 
