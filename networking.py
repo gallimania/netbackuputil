@@ -1,4 +1,4 @@
-# Copyright (C) 2018 Garrett Fifer
+# Copyright (C) 2018 Illogical Mathmatical Hypothetical Numerical Lyrical Crew
 #
 # File containing collection of python functions written to deal with the backend 
 # networking protocols by making use of the python socket package.
