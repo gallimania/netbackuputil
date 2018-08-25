@@ -35,8 +35,8 @@ def server_address_prompt():
         return server_ip
       
 
-# For more portability, I figured and object-oriented approach for our server/client implementations would be better
-# Because of this I created a base connection class that lays thr ground work for either connection
+# For more portability, I figured an object-oriented approach for our server/client implementations would be better
+# Because of this I created a base connection class that lays the ground work for either connection
 class Connection(object):
 
     # it is assumed that the address and port have been verified before, so we initialize the connection and bind our
