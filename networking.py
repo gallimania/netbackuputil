@@ -38,7 +38,6 @@ def server_address_prompt():
 # For more portability, I figured an object-oriented approach for our server/client implementations would be better
 # Because of this I created a base connection class that lays the ground work for either connection
 class Connection(object):
-
     # it is assumed that the address and port have been verified before, so we initialize the connection and bind our
     # socket when we initialize it. We don't go a step further we just create the descriptor so that the connection
     # base class can be used for all types of connections
@@ -82,7 +81,6 @@ class Connection(object):
 
         if not(af_vers in af_versions) or not(sock_type in socket_types):
             raise InvalidSocketType("Not a defined socket type in the python socket library")
-
         # close the old socket so it isn't left hanging there unused
         self.socket.close()
         self.socket = s.socket(af_vers, sock_type)
@@ -123,7 +121,6 @@ class Server(Connection):
         raw_data = self.data_socket.recv(rec_size)
         if not raw_data:
             return None
-
         # if '.' is in the filename, we are dealing with a file, otherwise we are dealing with a directory so we write
         # to an ISO image
         if "." in raw_data:
@@ -132,12 +129,10 @@ class Server(Connection):
         else:
             outfile = open(str(dt.date.today()) + ".iso", 'a')
             filename = str(dt.date.today()) + ".iso"
-
         # as long as the client doesn't send and empty bit of data we can keep receiving and writing
         while raw_data:
             raw_data = self.data_socket.recv(rec_size)
             outfile.write(raw_data)
-
         return filename
 
     # when we are done with the server, we close the data connection, allowing for future connections so that the server
